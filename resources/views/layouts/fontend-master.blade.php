@@ -90,17 +90,26 @@
 
     <!-- Header Section Begin -->
     <header class="header">
-        <div class="header__top d-flex align-items-center">
-            <div class="container d-flex justify-content-end">
-                <div class="header__top__right__auth d-flex justify-content-between">
+        <div class="header__top d-flex align-items-center justify-content-end">
+
+                <div class="header__top__right__auth d-flex justify-content-start align-items-center">
                     @auth
-                    <a href="{{ route('home') }}"><i class="fa fa-user"></i> My Account</a>
+                    <a href="{{ route('home') }}" class="link l1">My Account</a>
+                    <a class="link l1" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                     @else
-                    <a href="{{ route('login') }}"><i class="fa fa-user"></i> Login</a>
-                    <a href="{{ route('register') }}"><i class="fa fa-user"></i> Register</a>
+                    <a href="{{ route('login') }}" class="link l1">Sign-in</a>
+                    <a href="{{ route('register') }}" class="link l1">Sign-up</a>
                     @endauth
                 </div>
-            </div>
+
         </div>
         @if(session('cart'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -114,7 +123,7 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="{{ url('/') }}"><img src="https://seeklogo.com/images/E/e-commerce-logo-B0AE7EE720-seeklogo.com.png" alt="" style="width: 100px;"></a>
+                        <a href="{{ url('/') }}"><i class="fa-regular fa-font-awesome"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -167,9 +176,11 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
+                        <!--
                         <div class="footer__about__logo">
                             <a href="{{ url('/') }}"><img src="{{ asset('fontend') }}/img/logo.png" alt=""></a>
                         </div>
+                    -->
                         <ul>
                             <li>Address: 60-49 Road 11378 New York</li>
                             <li>Phone: +65 11.188.888</li>
@@ -219,7 +230,7 @@
                 <div class="col-lg-12">
                     <div class="footer__copyright">
                         <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script><a href="#" target="_blank"> Davi Carvalho</a>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
                         <div class="footer__copyright__payment"><img src="{{ asset('fontend') }}/img/payment-item.png" alt=""></div>
                     </div>

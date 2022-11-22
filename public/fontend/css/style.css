@@ -253,13 +253,70 @@ ol {
 .header__top {
     height: 50px;
     width: 100%;
-    background-color: #04BF8A;
+    background-color: #000000;
+
 }
 
 .header__top__right__auth {
-    background-color: red;
     width: 12%;
 }
+
+.header__top__right__auth .link{
+    transition: all 0.3s ease-in-out;
+    display:inline-block;
+    text-align: center;
+    width:100px;
+    height:40px;
+    line-height:40px;
+    border:2px solid white;
+    color: #fff;
+    text-transform: capitalize;
+    border-radius:2px;
+    margin:5px;
+    position:relative;
+    overflow:hidden;
+}
+
+
+.l1:before{
+    transition: all 0.1s linear;
+    content: attr(value);
+    display:block;
+  }
+  .l1:after {
+      transition: all 0.3s ease-in-out;
+      content: "";
+      display: block;
+      background-color:white;
+      margin-top:0px;
+      height: 40px;
+  }
+
+  .l1:hover:after{
+      margin-top:-40px;
+  }
+  .l1:hover{
+      color:#e22575;
+  }
+  .l4:before{
+    content: attr(value);
+    display:block;
+  }
+  .l4:after {
+      transition: all 0.1s ease-in-out;
+      content: "";
+      display: block;
+      background-color:white;
+      margin-top:-40px;
+      opacity:0;
+      height: 40px;
+  }
+  .l4:hover:after{
+    opacity:1;
+  }
+  .l4:hover{
+      color:#e22575;
+  }
 
 .header__logo {
 	padding: 15px 0;
@@ -314,7 +371,7 @@ ol {
 }
 
 .header__menu ul li.active a {
-	color: #025951;
+	color: #c94a6f;
 }
 
 .header__menu ul li:hover .header__menu__dropdown {
@@ -378,7 +435,7 @@ ol {
 .header__cart ul li a span {
 	height: 13px;
 	width: 13px;
-	background: #025951;
+	background: #c94a6f;
 	font-size: 10px;
 	color: #ffffff;
 	line-height: 13px;
@@ -581,10 +638,47 @@ ol {
 }
 
 .hero__item {
-	height: 431px;
+    width: 90%;
+	height: 850px;
 	display: flex;
 	align-items: center;
+    background-repeat: no-repeat;
+    background-position: center;
 	padding-left: 75px;
+    background-image: url('https://www.apple.com/br/iphone/home/images/overview/hero/iphone_14_hero__ceub5xriecgi_large.jpg');
+}
+
+.hero__item #hero-btn {
+    background-color: #000;
+}
+
+.hero__item .hero__text {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.1px);
+    -webkit-backdrop-filter: blur(4.1px);
+    height: 300px;
+    padding: 15px;
+}
+
+.hero__item .hero__text span {
+    color: #000;
+}
+
+.hero__item .hero__text h2 {
+
+
+    color: #c94a6f;
+}
+
+.hero__item .hero__text a {
+    transition: .3s ease-in-out;
+}
+
+.hero__item .hero__text a:hover {
+    color: #c94a6f;
+    background-color: #fff!important;
 }
 
 .hero__text span {
@@ -3285,8 +3379,16 @@ ol {
 /* Small Device = 320px */
 
 @media only screen and (max-width: 479px) {
+
     .header__top{
         display: none!important;
+    }
+
+    .hero__item {
+        width: 349px;
+        height: 317px;
+        background-size: 349px 317px;
+        background-repeat: no-repeat;
     }
 
 	.hero__search__form form .hero__search__categories {
